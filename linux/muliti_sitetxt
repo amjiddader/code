@@ -1,0 +1,26 @@
+
+<VirtualHost *:80>
+ServerAdmin server@wansaw.com
+ServerName wansaw.com
+ServerAlias www.wansaw.com
+DocumentRoot /home/www/wansaw
+ErrorLog /home/www/wansaw_error.log
+<Directory /home/www/wansaw>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+</VirtualHost>
+
+
+
+
+a2dissite 000-default.conf
+a2ensite main.conf
+a2enmod rewrite
+systemctl restart apache2
+apt install software-properties-common -y
+add-apt-repository universe 
+apt update
+apt install certbot python3-certbot-apache -y
+certbot --apache --register-unsafely-without-email
