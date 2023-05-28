@@ -1,0 +1,84 @@
+// Only for debail wget -O sq.dev http://repo.mysql.com/mysql-apt-config_0.8.22-1_all.deb && dpkg -i sq.deb
+// Install REPOS
+apt install software-properties-common -y && add-apt-repository universe -y && add-apt-repository ppa:ondrej/php -y && add-apt-repository ppa:ondrej/apache2 -y
+// Forextra
+
+add-apt-repository ppa:xapienz/curl34 -y  && add-apt-repository ppa:deadsnakes/ppa -y
+
+apt update
+apt install -y zip unzip vim wget ffmpeg
+
+// Install useful stuff 
+/// Install PHP+APACHE
+apt install php7.1 php7.1-sqlite3 php7.1-http php7.1-common php7.1-mysql php7.1-xml php7.1-bcmath php7.1-xmlrpc php7.1-curl php7.1-gd php7.1-imagick php7.1-cli php7.1-dev php7.1-imap php7.1-mbstring php7.1-opcache php7.1-soap php7.1-zip php7.1-intl -y
+
+apt install apache2 vim zip unzip php7.4 php7.4-raphf php7.4-propro php7.4-sqlite3 php7.4-http php7.4-common php7.4-mysql php7.4-xml php7.4-bcmath php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y
+
+apt install php8.0 php8.0-raphf php8.0-sqlite3 php8.0-http php8.0-common php8.0-mysql php8.0-xml php8.0-bcmath php8.0-xmlrpc php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl -y
+
+apt install php8.1-raphf php8.1 php8.1-sqlite3 php8.1-http php8.1-common php8.1-mysql php8.1-xml php8.1-bcmath php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-opcache php8.1-soap php8.1-zip php8.1-intl -y
+
+wget -O /etc/php/8.1/apache2/php.ini https://github.com/amjiddader/raw/raw/main/doc/php8.1.ini
+
+
+///Python38 
+
+apt update 
+sudo apt install curl build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget -y
+wget -O Python.tgz https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+tar -xf Python.tgz
+cd Python-3.8.0
+./configure --enable-optimizations
+sudo make install
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.8 get-pip.py
+rm * 
+
+
+
+
+
+.. NODEJS 
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+apt-get install -y nodejs
+
+// MYSQL PHPMYADMIN
+apt install mysql-server mysql-client libdata-dump-perl libipc-sharedcache-perl libwww-perl  tinyca libgssapi-perl libfont-freetype-perl libgtk2-perl-doc gvfs libcrypt-ssleay-perl librsvg2-bin libauthen-ntlm-perl -y
+apt install phpmyadmin -y
+
+#  Fix mysql and phpmyadmin
+mysql 
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'amjiddader';
+FLUSH PRIVILEGES;
+
+/// FIX PMA working
+/// Fix MYSQL 
+UPDATE mysql.user SET plugin = 'mysql_native_password', authentication_string = PASSWORD('amjiddader') WHERE User = 'root';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'amjiddader';
+FLUSH PRIVILEGES;
+
+
+ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+a2enconf phpmyadmin
+service apache2 reload
+
+
+// ADD PHPMYADMIN THEME
+
+wget -O /usr/share/phpmyadmin/themes/theme.zip  https://files.phpmyadmin.net/themes/fallen/0.7.3/fallen-0.7.3.zip && unzip theme.zip && rm theme.zip
+
+## Oracle open ports 
+sh -c "iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT && iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT && service iptables save"
+
+
+
+## Create Swap
+fallocate -l 1G /swapfile 
+or 
+dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+vim /etc/fstab : /swapfile swap swap defaults 0 0 
+swapon --show 
+cat /proc/sys/vm/swappiness
