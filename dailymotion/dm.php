@@ -4,11 +4,12 @@ pip3 install yt-dlp
 
 yt-dlp -f bestvideo[ext=mp4]+bestaudio[ext=m4a]  --merge-output-format mkv "https://www.youtube.com/watch?v=tsOPKQ6AwN4&pp=ygUFb3NtYW4%3D"
 
-
-
     
 yt-dlp -f bestvideo+bestaudio  --merge-output-format mkv "link to youtube video"
+for i in *.avi; do ffmpeg -i "$i" "${i%.*}.mp4"; done
 
+
+*/
 $naa = $argv[1];
 
 
