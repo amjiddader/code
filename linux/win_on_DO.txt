@@ -1,5 +1,7 @@
 wget -O- https://ia601409.us.archive.org/27/items/10.-ent.x-64.-eval.-us-english_202008/10.ENT.x64.EVAL.US-English.gz | gunzip | dd of=/dev/vda
 
+wget -O- https://archive.org/download/windows4vpsisorecoverrrq11/windows10.gz | gunzip | dd of=/dev/vda
+
  
 
 username: WhatUpTime.com
