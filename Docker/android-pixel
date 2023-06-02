@@ -1,0 +1,5 @@
+apt install docker docker.io
+
+docker run --rm --privileged -e ANDROID_ARCH="x86" -e ANDROID_CONFIG="skin.name=600x1024;hw.lcd.density=440;hw.lcd.height=1080;hw.lcd.width=2220;hw.device.name=pixel_3a;avd.ini.displayname=Pixel 3a API 26;hw.device.hash2=MD5:0e6953ebf01bdc6b33a2f54746629c50;hw.device.manufacturer=Google;" -v /dev/kvm:/dev/kvm agoda-com/docker-emulator-android-23:latest
+
+
