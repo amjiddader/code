@@ -1,3 +1,5 @@
+create new file at /etc/apache2/sites-available/
+vim  /etc/apache2/sites-available/main.conf
 
 <VirtualHost *:80>
 ServerAdmin server@wansaw.com
