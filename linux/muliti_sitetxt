@@ -4,11 +4,10 @@ vim  /etc/apache2/sites-available/main.conf
 
 <VirtualHost *:80>
 ServerAdmin admin@okflix.top
-ServerName wansaw.com
-ServerAlias www.wansaw.com
+ServerName cdn.okflix.top
 DocumentRoot /root/okflix_api/
 ErrorLog /root/okflix_api/error.log
-<Directory /home/www/wansaw>
+<Directory /root/okflix_api/>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
