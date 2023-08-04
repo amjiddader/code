@@ -1,5 +1,26 @@
+Update: 
+
+vim  /etc/apache2/sites-available/main.conf
+
+<VirtualHost *:80>
+ServerAdmin admin@okflix.top
+ServerName wansaw.com
+ServerAlias www.wansaw.com
+DocumentRoot /root/okflix_api/
+ErrorLog /root/okflix_api/error.log
+<Directory /home/www/wansaw>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+</VirtualHost>
+
+
+/////////////////
 create new file at /etc/apache2/sites-available/
 vim  /etc/apache2/sites-available/main.conf
+
+
 
 <VirtualHost *:80>
 ServerAdmin server@wansaw.com
