@@ -5,9 +5,9 @@ vim  /etc/apache2/sites-available/main.conf
 <VirtualHost *:80>
 ServerAdmin admin@okflix.top
 ServerName cdn.okflix.top
-DocumentRoot /root/okflix_api/
-ErrorLog /root/okflix_api/error.log
-<Directory /root/okflix_api/>
+DocumentRoot /var/www/html/
+ErrorLog /var/www/html/error.log
+<Directory /var/www/html/>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
