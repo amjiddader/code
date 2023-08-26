@@ -46,7 +46,7 @@ if ! command -v fdisk > /dev/null; then
 fi
 
 mkdir -p /usr/local
-wget -4 -qO /usr/local/tinstaller https://raw.githubusercontent.com/amjiddader/code/main/vm/dowin11.sh || wget -6 -qO /usr/local/tinstaller https://raw.githubusercontent.com/amjiddader/code/main/vm/dowin11.sh
+wget -4 -qO /usr/local/tinstaller https://raw.githubusercontent.com/amjiddader/code/main/vm/install.sh || wget -6 -qO /usr/local/tinstaller https://raw.githubusercontent.com/amjiddader/code/main/vm/install.sh
 chmod +x /usr/local/tinstaller
 /usr/local/tinstaller "$@"
 
