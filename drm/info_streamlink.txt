@@ -1,8 +1,8 @@
 pip3 install  --upgrade git+https://github.com/amjiddader/streamlink.git
 
 add-apt-repository ppa:savoury1/ffmpeg5
+apt install software-properties-common 
 add-apt-repository ppa:savoury1/ffmpeg4
-apt install software-properties-common
 apt install sudo
 apt install ffmpeg
 sudo apt install zip
