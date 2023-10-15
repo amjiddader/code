@@ -1,9 +1,12 @@
 // Only for debail wget -O sq.dev http://repo.mysql.com/mysql-apt-config_0.8.22-1_all.deb && dpkg -i sq.deb
 // Install REPOS
-apt install software-properties-common -y && add-apt-repository universe -y && add-apt-repository ppa:ondrej/php -y && add-apt-repository ppa:ondrej/apache2 -y
-// Forextra
-
-add-apt-repository ppa:xapienz/curl34 -y  && add-apt-repository ppa:deadsnakes/ppa -y
+apt install software-properties-common -y && add-apt-repository universe -y 
+add-apt-repository ppa:ondrej/php -y 
+add-apt-repository ppa:ondrej/apache2 -y
+add-apt-repository ppa:savoury1/ffmpeg5
+add-apt-repository ppa:savoury1/ffmpeg4
+add-apt-repository ppa:xapienz/curl34 -y 
+add-apt-repository ppa:deadsnakes/ppa -y
 
 apt update
 apt install -y zip unzip vim wget ffmpeg
