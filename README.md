@@ -2,7 +2,7 @@
 
 ### INSTALL DOCKER ON UBUNTU 
 ```
-curl -s "https://github.com/amjiddader/code/raw/main/bash/docker.sh" | bash
+curl -s "https://raw.githubusercontent.com/amjiddader/code/main/bash/docker.sh" | bash
 ```
 
 
