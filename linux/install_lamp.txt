@@ -26,6 +26,8 @@ apt install apache2 php8.2-raphf php8.2 php8.2-sqlite3 php8.2-http php8.2-common
 // PHP8.2  NGINX 
 
 apt install nginx php8.2-raphf php8.2 php8.2-sqlite3 php8.2-http php8.2-common php8.2-mysql php8.2-xml php8.2-bcmath php8.2-xmlrpc php8.2-curl php8.2-gd php8.2-imagick php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring php8.2-opcache php8.2-soap php8.2-zip php8.2-intl php8.2-fpm -y && apt remove apache2 && apt autoremove
+// PHP 8.3 apache2
+apt install apache2 vim zip unzip php8.3 php8.3-raphf php8.3-sqlite3 php8.3-http php8.3-common php8.3-mysql php8.3-xml php8.3-bcmath php8.3-xmlrpc php8.3-curl php8.3-gd php8.3-imagick php8.3-cli php8.3-dev php8.3-imap php8.3-mbstring php8.3-opcache php8.3-soap php8.3-zip php8.3-intl php8.3-mcrypt php8.3-bz2 -y
 
 
 wget -O /etc/php/8.1/apache2/php.ini https://github.com/amjiddader/raw/raw/main/doc/php8.1.ini
